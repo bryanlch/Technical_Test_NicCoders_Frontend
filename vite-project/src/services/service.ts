@@ -19,18 +19,21 @@ interface Character {
   created: string;
 }
 
-async function fetchCharacters(): Promise<Character[]> {
+async function fetchCharacters(page: number, pageSize: number): Promise<{ results: Character[]; total: number }> {
+  console.log("🚀 ~ file: service.ts:23 ~ page:", page)
   try {
-    const response = await fetch("https://rickandmortyapi.com/api/character/");
+    const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}&pageSize=${pageSize}`);
     if (!response.ok) {
-      throw new Error("Failed to fetch characters");
+      throw new Error('Failed to fetch characters');
     }
     const data = await response.json();
-
-    return data;
+    return data
   } catch (error) {
-    console.error("Error fetching characters:", error);
-    return [];
+    console.error('Error fetching characters:', error);
+    return {
+      results: [],
+      total: 0
+    };
   }
 }
 
