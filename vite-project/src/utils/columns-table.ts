@@ -14,11 +14,17 @@ const constructorColumnsTable = ({
   const firstObj: AnyObject = info[0];
   const arr: AnyObject = [];
 
-  Object.entries(firstObj).forEach(([sourceField]) => {
-    arr.push(sourceField);
+  Object.entries(firstObj).forEach(([sourceField, targetField]) => {
+    if (typeof (targetField) === 'string' || typeof (targetField) === 'number' || typeof (targetField) === 'boolean') {
+      if (sourceField !== "type" && sourceField !== "url" && sourceField !== "id")
+        arr.push(sourceField);
+    }
   });
 
-  return arr;
+  const newArr = arr.filter((item: string) => item !== "image");
+  const newObj = ["image", ...newArr];
+
+  return newObj;
 };
 
 export { constructorColumnsTable };
