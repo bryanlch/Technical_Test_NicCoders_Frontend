@@ -72,10 +72,9 @@ const TableComponent = ({
                                 </td>
                             ))}
                             <td>
-                                <div className="grid grid-cols-2 w-full">
+                                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-1">
                                     <ButtonIcon icon={"❤"} onClick={() => addFavorite(obj?.id)} disabled={false} />
                                     <ButtonIcon icon={"-"} onClick={() => removeFavorite(obj?.id)} disabled={false} />
-
                                 </div>
                             </td>
                         </tr>

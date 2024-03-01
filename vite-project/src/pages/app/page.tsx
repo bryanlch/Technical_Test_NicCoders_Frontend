@@ -75,7 +75,7 @@ export default function AppPage() {
                                 totalItems={totalItems}
                                 onNextPage={goToNextPage}
                                 onPreviousPage={goToPreviousPage}
-                                addFavorite={(id: number) => addFavorite(id)}
+                                addFavorite={addFavorite}
                                 removeFavorite={removeFavorite}
                             />
                         )}
