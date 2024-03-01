@@ -14,6 +14,8 @@ export default function AppPage() {
     const [itemsPerPage, setItemsPerPage] = useState<number>(20);
     const [totalItems, setTotalItems] = useState<number>(0);
 
+    const [favorites, setFavorites] = useState<any[]>([]);
+
     useEffect(() => {
         fetchData();
     }, [currentPage]);
@@ -43,6 +45,19 @@ export default function AppPage() {
         }
     };
 
+    const addFavorite = (id: number) => {
+        console.log("🚀 ~ addFavorite: page.tsx:54 ~ id:", id)
+
+        const newFavorites = [...favorites, id];
+        setFavorites(newFavorites);
+    };
+
+    const removeFavorite = (id: number) => {
+        console.log("🚀 ~ removeFavorite: page.tsx:54 ~ id:", id)
+        const newFavorites = favorites.filter((item: number) => item !== id);
+        setFavorites(newFavorites);
+    }
+
     return (
         <>
             <div className='h-full w-full'>
@@ -59,7 +74,10 @@ export default function AppPage() {
                                 itemsPerPage={itemsPerPage}
                                 totalItems={totalItems}
                                 onNextPage={goToNextPage}
-                                onPreviousPage={goToPreviousPage} />
+                                onPreviousPage={goToPreviousPage}
+                                addFavorite={(id: number) => addFavorite(id)}
+                                removeFavorite={removeFavorite}
+                            />
                         )}
                     </div>
                 </div>

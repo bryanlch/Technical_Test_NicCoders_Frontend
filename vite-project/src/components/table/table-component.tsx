@@ -8,9 +8,21 @@ interface TableComponentProps {
     totalItems: number;
     onNextPage: () => void;
     onPreviousPage: () => void;
+    addFavorite: (id: number) => void;
+    removeFavorite: (id: number) => void;
 }
 
-const TableComponent = ({ columns, data, currentPage, itemsPerPage, totalItems, onNextPage, onPreviousPage }: TableComponentProps) => {
+const TableComponent = ({
+    columns,
+    data,
+    currentPage,
+    itemsPerPage,
+    totalItems,
+    onNextPage,
+    onPreviousPage,
+    addFavorite,
+    removeFavorite
+}: TableComponentProps) => {
     const [columnsState, setColumnsState] = useState(columns);
     const totalPages = Math.ceil(totalItems / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage + 1;
@@ -59,6 +71,13 @@ const TableComponent = ({ columns, data, currentPage, itemsPerPage, totalItems, 
                                     }
                                 </td>
                             ))}
+                            <td>
+                                <div className="grid grid-cols-2 w-full">
+                                    <ButtonIcon icon={"❤"} onClick={() => addFavorite(obj?.id)} disabled={false} />
+                                    <ButtonIcon icon={"-"} onClick={() => removeFavorite(obj?.id)} disabled={false} />
+
+                                </div>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

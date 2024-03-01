@@ -9,7 +9,7 @@ export default function HomePage() {
     }
     return (
         <>
-            <div className='w-full flex justify-center items-center  '>
+            <div className='w-full h-screen flex justify-center items-center  '>
                 <div className='bg-[#02AFC5] shadow-xl w-4/5 max-w-[1300px] max-h-[550px] rounded-lg '>
                     <div className=' grid grid-cols-1 md:grid-cols-2 '>
                         <div className="h-full flex justify-center items-center p-10">
@@ -21,7 +21,7 @@ export default function HomePage() {
                                 <div className='flex justify-center '>
                                     <div className='grid grid-cols-2 gap-3 md:w-80'>
                                         <ButtonStandard children={"Mostrar personajes"} onClick={handleInit} />
-                                        <ButtonStandard children={"About"} />
+                                        <ButtonStandard children={"Favoritos"} />
                                     </div>
                                 </div>
                             </div>
