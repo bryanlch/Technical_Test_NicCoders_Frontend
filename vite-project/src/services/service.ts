@@ -20,7 +20,6 @@ interface Character {
 }
 
 async function fetchCharacters(page: number, pageSize: number): Promise<{ results: Character[]; total: number }> {
-  console.log("🚀 ~ file: service.ts:23 ~ page:", page)
   try {
     const response = await fetch(`https://rickandmortyapi.com/api/character/?page=${page}&pageSize=${pageSize}`);
     if (!response.ok) {

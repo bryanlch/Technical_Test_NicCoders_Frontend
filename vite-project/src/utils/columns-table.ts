@@ -16,7 +16,7 @@ const constructorColumnsTable = ({
 
   Object.entries(firstObj).forEach(([sourceField, targetField]) => {
     if (typeof (targetField) === 'string' || typeof (targetField) === 'number' || typeof (targetField) === 'boolean') {
-      if (sourceField !== "type" && sourceField !== "url" && sourceField !== "id")
+      if (sourceField !== "type" && sourceField !== "url" && sourceField !== "id" && sourceField !== "created")
         arr.push(sourceField);
     }
   });

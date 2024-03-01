@@ -5,14 +5,14 @@ export default function HomePage() {
     const navigateTo = useNavigate();
 
     const handleInit = () => {
-        navigateTo('/list');
+        navigateTo('/character');
     }
     return (
         <>
-            <div className='w-full h-fit flex justify-center items-center mt-10  '>
-                <div className='bg-[#AED6F9] shadow-xl w-4/5 h-2/5 rounded-lg '>
-                    <div className=' grid grid-cols-1 md:grid-cols-2'>
-                        <div className="h-full flex items-center p-10">
+            <div className='w-full flex justify-center items-center  '>
+                <div className='bg-[#02AFC5] shadow-xl w-4/5 max-w-[1300px] max-h-[550px] rounded-lg '>
+                    <div className=' grid grid-cols-1 md:grid-cols-2 '>
+                        <div className="h-full flex justify-center items-center p-10">
                             <div className='grid grid-flow-row'>
                                 <div className='my-5 text-center text-white'>
                                     <h1 className='text-4xl font-bold my-3'>¡Bienvenido!</h1>
@@ -26,11 +26,11 @@ export default function HomePage() {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex justify-center items-center">
+                        <div className="flex justify-end ">
                             <img
-                                src="./public/img/logo.jpg"
+                                src="./public/img/_34bb7b89-e5b4-4d09-ac34-f1ce539ec0de.jpg"
                                 alt="test"
-                                className="h-3/5 md:h-4/5 mx-auto rounded-md"
+                                className="h-auto max-h-[550px] rounded-md  "
                             />
                         </div>
                     </div>
